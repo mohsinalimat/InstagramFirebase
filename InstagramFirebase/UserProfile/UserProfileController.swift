@@ -39,7 +39,7 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
         
         //perhaps later on we'll implement some pagination of data
         ref.queryOrdered(byChild: "creationDate").observe(.childAdded, with: { (snapshot) in
-
+            
             guard let dictionary = snapshot.value as? [String: Any] else { return }
             
             guard let user = self.user else { return }
@@ -47,7 +47,7 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
             let post = Post(user: user, dictionary: dictionary)
             
             self.posts.insert(post, at: 0)
-//            self.posts.append(post)
+            //self.posts.append(post)
             self.collectionView.reloadData()
             
         }) { (err) in
@@ -128,17 +128,17 @@ class UserProfileController: UICollectionViewController, UICollectionViewDelegat
         
         let uid = userId ?? (Auth.auth().currentUser?.uid ?? "")
         
-//        guard let uid = Auth.auth().currentUser?.uid else { return }
-
+        //        guard let uid = Auth.auth().currentUser?.uid else { return }
+        
         Database.fetchUserWithUID(uid: uid) { (user) in
-           
+            
             self.user = user
             self.navigationItem.title = self.user?.username
             
             self.collectionView.reloadData()
             
             self.fetchOrderedPosts()
-    
+            
         }
     }
 }

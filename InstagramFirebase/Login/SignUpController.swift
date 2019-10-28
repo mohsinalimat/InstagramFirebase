@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 
 class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-
+    
     let plusPhotoButton: UIButton = {
         let button = UIButton(type: .system)
         button.setImage(#imageLiteral(resourceName: "plus_photo").withRenderingMode(.alwaysOriginal), for: .normal)
@@ -34,7 +34,7 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
         } else if  let originalImage = info[.originalImage] as? UIImage {
             plusPhotoButton.setImage(originalImage.withRenderingMode(.alwaysOriginal), for: .normal)
         }
-    
+        
         plusPhotoButton.layer.cornerRadius = plusPhotoButton.frame.width/2
         plusPhotoButton.layer.masksToBounds = true
         
@@ -128,38 +128,38 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
                     return
                 }
                 
-            // Firebase 5 Update: Must now retrieve downloadURL
-            
-            storageRef.downloadURL(completion: { (downloadURL, err) in
-                if let err = err {
-                    print("Failed to fetch downloadURL:", err)
-                    return
-                }
+                // Firebase 5 Update: Must now retrieve downloadURL
                 
-                guard let profileImageUrl = downloadURL?.absoluteString else { return }
-                
-                print("Successfully uploaded profile image:", profileImageUrl)
-                
-                guard let uid = authDataResult?.user.uid else { return }
-                
-                let dictionaryValues = ["username": username, "profileImageUrl": profileImageUrl]
-                let values = [uid: dictionaryValues]
-                
-                Database.database().reference().child("users").updateChildValues(values, withCompletionBlock: { (err, ref) in
-                    
+                storageRef.downloadURL(completion: { (downloadURL, err) in
                     if let err = err {
-                        print("Failed to save user info into db:", err)
+                        print("Failed to fetch downloadURL:", err)
                         return
                     }
                     
-                    print("Successfully saved user info to db")
+                    guard let profileImageUrl = downloadURL?.absoluteString else { return }
                     
-                    guard let mainTabBarController = UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController else { return }
+                    print("Successfully uploaded profile image:", profileImageUrl)
                     
-                    mainTabBarController.setupViewControllers()
+                    guard let uid = authDataResult?.user.uid else { return }
                     
-                    self.dismiss(animated: true, completion: nil)
+                    let dictionaryValues = ["username": username, "profileImageUrl": profileImageUrl]
+                    let values = [uid: dictionaryValues]
                     
+                    Database.database().reference().child("users").updateChildValues(values, withCompletionBlock: { (err, ref) in
+                        
+                        if let err = err {
+                            print("Failed to save user info into db:", err)
+                            return
+                        }
+                        
+                        print("Successfully saved user info to db")
+                        
+                        guard let mainTabBarController = UIApplication.shared.keyWindow?.rootViewController as? MainTabBarController else { return }
+                        
+                        mainTabBarController.setupViewControllers()
+                        
+                        self.dismiss(animated: true, completion: nil)
+                        
                     })
                 })
             })
@@ -182,7 +182,7 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
     @objc func handleAlreadyHaveAccount() {
         _ = navigationController?.popViewController(animated: true)
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -194,9 +194,9 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
         view.addSubview(plusPhotoButton)
         
         plusPhotoButton.anchor(top: view.topAnchor, left: nil, bottom: nil, right: nil, paddingTop: 40, paddingLeft: 0, paddingBottom: 0, paddingRight: 0, width: 140, height: 140)
-
+        
         plusPhotoButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-
+        
         setupInputFields()
         
     }
@@ -213,7 +213,7 @@ class SignUpController: UIViewController, UIImagePickerControllerDelegate, UINav
         
         stackView.anchor(top: plusPhotoButton.bottomAnchor, left: view.leftAnchor, bottom: nil, right: view.rightAnchor, paddingTop: 20, paddingLeft: 40, paddingBottom: 0, paddingRight: 40, width: 0, height: 200)
     }
-
+    
 }
 
 func uploadImageToFirebaseStorage(data: Data, onSuccess: @escaping (_ imageUrl: String) -> Void) {

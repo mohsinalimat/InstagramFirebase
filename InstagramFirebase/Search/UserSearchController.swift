@@ -30,7 +30,7 @@ class UserSearchController: UICollectionViewController, UICollectionViewDelegate
             filteredUsers = users
         } else {
             filteredUsers = self.users.filter { (user) -> Bool in
-            return user.username.lowercased().contains(searchText.lowercased())
+                return user.username.lowercased().contains(searchText.lowercased())
             }
         }
         self.collectionView.reloadData()

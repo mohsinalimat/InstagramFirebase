@@ -23,7 +23,7 @@ class HomePostCell: UICollectionViewCell {
             
             userProfileImageView.loadImage(urlString: profileImageURL)
             
-//            captionLabel.text = post?.caption
+            //            captionLabel.text = post?.caption
             
             setupAttributedCaption()
         }

@@ -90,21 +90,21 @@ class SharePhotoController: UIViewController {
     fileprivate func saveToDatabaseWithImageUrl(imageUrl: String) {
         guard let postImage = selectedImage else { return }
         guard let caption = textView.text else { return }
-
+        
         guard let uid = Auth.auth().currentUser?.uid else { return }
-
+        
         let userPostRef = Database.database().reference().child("posts").child(uid)
         let ref = userPostRef.childByAutoId()
-
+        
         let values = ["imageUrl": imageUrl, "caption": caption, "imageWidth": postImage.size.width, "imageHeight": postImage.size.height, "creationDate": Date().timeIntervalSince1970] as [String : Any]
-
+        
         ref.updateChildValues(values) { (err, ref) in
             if let err = err {
                 self.navigationItem.rightBarButtonItem?.isEnabled = true
                 print("Failed to save post to DB", err)
                 return
             }
-
+            
             print("Successfully saved post to DB")
             self.dismiss(animated: true, completion: nil)
             
