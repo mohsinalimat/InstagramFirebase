@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-class CameraController: UIViewController, AVCapturePhotoCaptureDelegate {
+class CameraController: UIViewController, AVCapturePhotoCaptureDelegate, UIViewControllerTransitioningDelegate {
     
     let dismissButton: UIButton = {
         let button = UIButton()
@@ -34,10 +34,25 @@ class CameraController: UIViewController, AVCapturePhotoCaptureDelegate {
         
         transitioningDelegate = self
         
-        
         setupCaptureSession()
         setupHUD()
     }
+    
+  
+    let customAnimationPresenter = CustomAnimationPresentor()
+    
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return customAnimationPresenter
+    }
+    
+    //FIXME: - Animation do not work in iOS 13
+    
+    /*
+     let customAnimationDismisser = CustomAnimationDismisser()
+     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return customAnimationDismisser
+    }
+     */
     
     //removes the status bar
     override var prefersStatusBarHidden: Bool {

@@ -12,6 +12,9 @@
 		8100FAA4235DC576004FA418 /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8100FAA3235DC576004FA418 /* UserProfileController.swift */; };
 		8100FAA7235DF24C004FA418 /* UserProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8100FAA6235DF24C004FA418 /* UserProfileHeader.swift */; };
 		8100FAAA235E40C7004FA418 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8100FAA9235E40C7004FA418 /* LoginController.swift */; };
+		8118F0012366ECCE009E386D /* CustomAnimationPresentor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8118F0002366ECCE009E386D /* CustomAnimationPresentor.swift */; };
+		8118F0032366F35F009E386D /* CustomAnimationDismisser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8118F0022366F35F009E386D /* CustomAnimationDismisser.swift */; };
+		8118F0052367044F009E386D /* CommentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8118F0042367044F009E386D /* CommentsController.swift */; };
 		8139074B235F197400403091 /* PhotoSelectorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8139074A235F197400403091 /* PhotoSelectorController.swift */; };
 		8139074D235F26AE00403091 /* PhotoSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8139074C235F26AE00403091 /* PhotoSelectorCell.swift */; };
 		81390751235F336E00403091 /* PhotoSelectorHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81390750235F336E00403091 /* PhotoSelectorHeader.swift */; };
@@ -34,6 +37,8 @@
 		81E2DD0723605E36001EFB95 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E2DD0623605E36001EFB95 /* HomeController.swift */; };
 		81E2DD0923605FAE001EFB95 /* HomePostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E2DD0823605FAE001EFB95 /* HomePostCell.swift */; };
 		81E2DD0B23608766001EFB95 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E2DD0A23608766001EFB95 /* User.swift */; };
+		81EC42182367374400C74C5E /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EC42172367374400C74C5E /* CommentCell.swift */; };
+		81EC421A2367406B00C74C5E /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EC42192367406B00C74C5E /* Comment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +48,9 @@
 		8100FAA3235DC576004FA418 /* UserProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileController.swift; sourceTree = "<group>"; };
 		8100FAA6235DF24C004FA418 /* UserProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeader.swift; sourceTree = "<group>"; };
 		8100FAA9235E40C7004FA418 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		8118F0002366ECCE009E386D /* CustomAnimationPresentor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimationPresentor.swift; sourceTree = "<group>"; };
+		8118F0022366F35F009E386D /* CustomAnimationDismisser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnimationDismisser.swift; sourceTree = "<group>"; };
+		8118F0042367044F009E386D /* CommentsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsController.swift; sourceTree = "<group>"; };
 		8139074A235F197400403091 /* PhotoSelectorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectorController.swift; sourceTree = "<group>"; };
 		8139074C235F26AE00403091 /* PhotoSelectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectorCell.swift; sourceTree = "<group>"; };
 		81390750235F336E00403091 /* PhotoSelectorHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectorHeader.swift; sourceTree = "<group>"; };
@@ -67,6 +75,8 @@
 		81E2DD0623605E36001EFB95 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		81E2DD0823605FAE001EFB95 /* HomePostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePostCell.swift; sourceTree = "<group>"; };
 		81E2DD0A23608766001EFB95 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		81EC42172367374400C74C5E /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		81EC42192367406B00C74C5E /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		CE1A307D01CFBD427CFADCD8 /* Pods_InstagramFirebase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramFirebase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -126,6 +136,7 @@
 			children = (
 				81390755235F7E4200403091 /* Post.swift */,
 				81E2DD0A23608766001EFB95 /* User.swift */,
+				81EC42192367406B00C74C5E /* Comment.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -135,6 +146,8 @@
 			children = (
 				81419E5A23635C1500FAE32C /* CameraController.swift */,
 				816F056D236462240010EC90 /* PreviewPhotoContainerView.swift */,
+				8118F0002366ECCE009E386D /* CustomAnimationPresentor.swift */,
+				8118F0022366F35F009E386D /* CustomAnimationDismisser.swift */,
 			);
 			path = Camera;
 			sourceTree = "<group>";
@@ -203,6 +216,8 @@
 			children = (
 				81E2DD0623605E36001EFB95 /* HomeController.swift */,
 				81E2DD0823605FAE001EFB95 /* HomePostCell.swift */,
+				8118F0042367044F009E386D /* CommentsController.swift */,
+				81EC42172367374400C74C5E /* CommentCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -340,18 +355,23 @@
 				817C197F2357375300D2CF98 /* Extensions.swift in Sources */,
 				8139075C235F815F00403091 /* UserProfilePhotoCell.swift in Sources */,
 				81E2DD0B23608766001EFB95 /* User.swift in Sources */,
+				8118F0012366ECCE009E386D /* CustomAnimationPresentor.swift in Sources */,
 				81419E5B23635C1500FAE32C /* CameraController.swift in Sources */,
 				8100FAA2235DC44C004FA418 /* MainTabBarController.swift in Sources */,
 				8100FAA7235DF24C004FA418 /* UserProfileHeader.swift in Sources */,
+				81EC42182367374400C74C5E /* CommentCell.swift in Sources */,
 				8100FAA4235DC576004FA418 /* UserProfileController.swift in Sources */,
 				817C196C235726EC00D2CF98 /* AppDelegate.swift in Sources */,
+				8118F0032366F35F009E386D /* CustomAnimationDismisser.swift in Sources */,
 				8100FAAA235E40C7004FA418 /* LoginController.swift in Sources */,
 				81E2DD0923605FAE001EFB95 /* HomePostCell.swift in Sources */,
 				816F056E236462240010EC90 /* PreviewPhotoContainerView.swift in Sources */,
 				81390751235F336E00403091 /* PhotoSelectorHeader.swift in Sources */,
 				815CF46C2361ED2600978457 /* FirebaseUtils.swift in Sources */,
 				8139074B235F197400403091 /* PhotoSelectorController.swift in Sources */,
+				8118F0052367044F009E386D /* CommentsController.swift in Sources */,
 				815CF4682361A9C900978457 /* UserSearchController.swift in Sources */,
+				81EC421A2367406B00C74C5E /* Comment.swift in Sources */,
 				81E2DD0723605E36001EFB95 /* HomeController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
