@@ -10,6 +10,7 @@ import UIKit
 
 protocol HomePostCellDelegate  {
     func didTapComment(post: Post)
+    func didLike(for cell: HomePostCell)
 }
 
 class HomePostCell: UICollectionViewCell {
@@ -20,6 +21,12 @@ class HomePostCell: UICollectionViewCell {
         didSet {
             guard let postImageURL = post?.imageUrl else { return }
             
+            if post?.hasLiked == true {
+                likeButton.setImage(#imageLiteral(resourceName: "like_selected").withRenderingMode(.alwaysOriginal), for: .normal)
+            } else {
+                likeButton.setImage(#imageLiteral(resourceName: "like_unselected").withRenderingMode(.alwaysOriginal), for: .normal)
+            }
+        
             photoImageView.loadImage(urlString: postImageURL)
             
             usernameLabel.text = "TEST USERNAME"
@@ -88,7 +95,8 @@ class HomePostCell: UICollectionViewCell {
     }()
     
     @objc func handleLike() {
-        print("Handling like...")
+        print("Handling like inside cell...")
+        delegate?.didLike(for: self)
     }
     
     lazy var commentButton: UIButton = {
