@@ -70,8 +70,6 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
     var posts = [Post]()
     
-    
-    
     fileprivate func fetchPosts() {
         
         guard let uid = Auth.auth().currentUser?.uid else { return }
@@ -99,7 +97,6 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
                 
                 guard let uid = Auth.auth().currentUser?.uid else { return }
                 Database.database().reference().child("likes").child(key).child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
-                    print(snapshot)
                     
                     if let value = snapshot.value as? Int, value == 1 {
                         post.hasLiked = true
@@ -164,8 +161,6 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     
     func didTapComment(post: Post) {
         
-        print("Message coming from HomeController")
-        print(post.caption)
         let commentsController = CommentsController(collectionViewLayout: UICollectionViewFlowLayout())
         commentsController.post = post
         
@@ -173,9 +168,7 @@ class HomeController: UICollectionViewController, UICollectionViewDelegateFlowLa
     }
     
     func didLike(for cell: HomePostCell) {
-        print("Handling like inside of controller...")
-        
-        
+
         guard let indexPath = collectionView.indexPath(for: cell) else { return }
         
         var post = self.posts[indexPath.item]
